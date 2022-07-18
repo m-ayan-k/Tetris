@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project</title>
+    <style>
+        body{
+            background-color: #D1F2EB ;
+            padding: 0;
+            margin: 0;
+        }
+        canvas{
+            float: left;
+            z-index: 2;
+            border: 5px solid rgb(40, 116, 166);
+        }
+        #container{
+            z-index: 1;
+            width: 51%;
+            position: absolute;
+            left: 24%;
+            padding: 23px 42px;
+            background: repeating-linear-gradient(
+                131deg,
+                #D1F2EB,
+                #D1F2EB 1px,
+                rgb(112, 142, 197) 5px,
+                rgb(88, 143, 206) 3px
+                );
+        }
+        .value{
+            float: right;
+            font-family:fantasy;
+
+        }
+        #info{
+            background-color: #D1F2EB ;
+            border: 5px solid rgb(40, 116, 166);
+            margin-top: 16%;
+            margin-left: 5%;
+            width: 35%;
+            font-size: 40px;
+            display: inline-block;
+        }
+        button{
+            font-size: 29px;
+            margin-top: 22%;
+            margin-left: 5%;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+        .line{
+            background-color: rgb(40, 116, 166);
+            margin: 0;
+            font-size: 5px;
+            color: rgb(40, 116, 166);
+        }
+        .show{
+            color: rgb(40, 116, 166);
+            font-family:fantasy;
+        }
+        #game-over{
+            display: none;
+            z-index: 5;
+            left: 34%;
+            top: 12%;
+            position: absolute;
+        }
+        .mystyle{
+            display: block !important;
+            animation-name: gameover;
+            transition: transform 4s;
+        }
+        @keyframes gameover{
+            from{
+                width: 10px;
+                height: 10px ;
+            }
+            to{
+                transform: scale(1.5);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div>
+            <canvas id="tetris" height="600" width="390"></canvas>
+        </div>
+        <div id="info">
+            <span class="show">score</span>
+            <span class="value" id="score">0</span><br>
+            <p class="line">1</p>
+            <span class="show">line</span>
+            <span class="value" id="line">0</span><br>
+            <p class="line">2</p>
+            <span class="show">level</span>
+            <span class="value" id="level">0</span>
+        </div>
+        <button id="pause">pause</button>
+        <button id="resume">resume</button>
+    </div>
+    <img src="https://media.giphy.com/media/xUA7barHyuFW6RCF44/giphy.gif" id="game-over">
+
+    <script src="tetrominoes.js"></script>
+    <script src="tetris.js"></script>
+</body>
+</html>
